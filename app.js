@@ -1,6 +1,14 @@
 var express = require('express'),
   config = require('./config/config'),
+  elasticsearch = require('elasticsearch'),
   keys = require('./oauth.js');
+
+var client = new elasticsearch.Client({
+    host: 'localhost:9200',
+    sniffOnStart: true,
+    sniffInterval: 60000,
+    trace: true
+});
 
 var twitterKey = keys.twitter.consumerKey,
     twitterSecret = keys.twitter.consumerSecret,
@@ -25,7 +33,23 @@ oauth.get('https://api.twitter.com/1.1/statuses/home_timeline.json',
         if (error) console.error(error);
         json = JSON.parse(data);
         tweets = JSON.stringify(json);
-        console.log(json);
+        
+	for(var i = 0; i<json.length; i++)
+        {
+          var item = json[i];
+          client.create({
+            index: 'twitter',
+            type: 'tweets',
+            id: item.id,
+            body: item
+          }, function (error, response) {
+            if(error) {
+              console.log(error);
+            } else {
+              console.log("index created!");
+            }
+          });
+        }
       }
 );
 
