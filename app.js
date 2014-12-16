@@ -1,10 +1,11 @@
 var express = require('express'),
-  config = require('./config/config');
+  config = require('./config/config'),
+  keys = require('./oauth.js');
 
-var twitterKey = 'dMwGilyEIuH0PMdmxmDFTr7BD',
-    twitterSecret = '7Ebh0oheS734yNsSFDJmIeAymxjkuaqPpVFWgnFi2rC8cw8iy6',
-    token = '2890344886-ZRimYCSfnQVlaHhQr2CiiKw7t65VMPLNVJAY43C',
-    secret = 'I9GNc8MB05UfbIaKFAUZezfLbsdDgQmz38RRjSyDEkfNb';
+var twitterKey = keys.twitter.consumerKey,
+    twitterSecret = keys.twitter.consumerSecret,
+    token = keys.twitter.oauth_token,
+    secret = keys.twitter.oauth_token_secret;
 
 var OAuth = require('oauth');
 var oauth = new OAuth.OAuth(
