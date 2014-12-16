@@ -1,21 +1,21 @@
 body {
-  padding: 100px;
+  padding: 50px;
   font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #FF0000;
 }
 
 .strong {
   font-weight: bold;
-  color: #46b8da;
+  color: #00CC00;
   text-shadow: 1px 1px #ccc;
   margin: 0 0 5px 0;
 }
 
 .tweet img {
-  border-radius: 6px;
+  border-radius: 4px;
   float:left;
 }
 
@@ -23,9 +23,10 @@ a {
   display:inline-block;
   background: #F4F5F5;
   border: 1px solid #ddd;
-  border-radius:8px;
-  padding: 10px;
-  margin: 10px;
+  border-radius:16px;
+  padding: 20px;
+  margin: 20px;
+  width: 200px;
 }
 
 .info {

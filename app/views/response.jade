@@ -3,12 +3,12 @@ extends layout
 block content
   div(class="container")
     div(class="row")
-      h3!= "Search Query: " + query
+      h3!= "You searched for: " + query
 
       div(class="col-xs-12")
         each res in results
-          div(class="tweet col-xs-5")
+          div(class="tweet col-xs-5" style="width: 200px")
             img(src=res._source.user.profile_image_url)
+            h4.strong= res._source.user.name
             div(class="info col-xs-9")
-              h4.strong= res._source.user.name
               p= res._source.text

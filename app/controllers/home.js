@@ -29,7 +29,7 @@ module.exports = function (app) {
 router.get('/', function (req, res, next) {
   var articles = [new Article(), new Article()];
     res.render('index', {
-      title: 'ElastySearch',
+      title: 'IS-421 Elastic Search Project',
       articles: articles
     });
   var query = encodeURI(req.body.query);
